@@ -1,6 +1,14 @@
+import { Card } from "./ui/card"
+
 function GeneralInfoSection() {
   return (
-    <div>GeneralInfoSection</div>
+    <aside>
+        <section>
+            <Card>
+                <h2>General Info</h2>
+            </Card>
+        </section>
+    </aside>
   )
 }
 
