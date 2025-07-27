@@ -1,4 +1,4 @@
-import {Switch} from '@/components/ui/switch'
+import { Switch } from "@/components/ui/switch";
 
 function PageHeader() {
   return (
@@ -6,7 +6,7 @@ function PageHeader() {
       <h1 className="font-bold text-xl">Weather Dashboard</h1>
       <Switch />
     </header>
-  )
+  );
 }
 
-export default PageHeader
+export default PageHeader;
