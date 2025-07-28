@@ -15,11 +15,11 @@ function WeekSection() {
   return (
     <aside className="container">
       <section className="flex flex-col gap-2 items-center justify-center">
-        <div key={day}>
+        {/* <div key={day}>
           {weekSectionProps.map(({day, weatherImg, temperature, sensation}) => (
             <WeekDays day={day} weatherImg={weatherImg} temperature={temperature} sensation={sensation} />
           ))}
-        </div>
+        </div> */}
       </section>
     </aside>
   );
