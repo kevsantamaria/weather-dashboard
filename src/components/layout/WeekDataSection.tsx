@@ -1,5 +1,5 @@
-import { Card } from "./ui/card";
-import WeekDays from './WeekDays'
+import { Card } from "../ui/card";
+import WeekData from '../layout-data/WeekData'
 
 const weekSectionProps = [
   { day: "Monday", weatherImg: "", temperature: "", sensation: "" },
@@ -11,7 +11,7 @@ const weekSectionProps = [
   { day: "Sunday", weatherImg: "", temperature: "", sensation: "" },
 ];
 
-function WeekSection() {
+function WeekDataSection() {
   return (
     <aside className="container">
       <section className="flex flex-col gap-2 items-center justify-center">
@@ -25,4 +25,4 @@ function WeekSection() {
   );
 }
 
-export default WeekSection;
+export default WeekDataSection;

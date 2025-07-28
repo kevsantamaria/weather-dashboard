@@ -7,7 +7,7 @@ interface NextHoursProps {
   humidity: string;
 }
 
-function NextHours({ time, temperature, rain, humidity }: NextHoursProps) {
+function TodayData({ time, temperature, rain, humidity }: NextHoursProps) {
   return (
     <Card className="w-40 h-40 flex flex-col items-center justify-center shrink-0">
       <h2 className="text-lg font-semibold">{time}</h2>
@@ -20,4 +20,4 @@ function NextHours({ time, temperature, rain, humidity }: NextHoursProps) {
   );
 }
 
-export default NextHours;
+export default TodayData;

@@ -1,4 +1,4 @@
-import { Card } from "./ui/card";
+import { Card } from "../ui/card";
 
 interface weekDaysProps {
   day: string;
@@ -7,7 +7,7 @@ interface weekDaysProps {
   sensation: string;
 }
 
-function WeekDays({ day, weatherImg, temperature, sensation }: weekDaysProps) {
+function WeekData({ day, weatherImg, temperature, sensation }: weekDaysProps) {
   return (
     <Card className="min-w-130 flex flex-row justify-around items-center gap-4 text-xl">
       <h2>{day}</h2>
@@ -20,4 +20,4 @@ function WeekDays({ day, weatherImg, temperature, sensation }: weekDaysProps) {
   );
 }
 
-export default WeekDays;
+export default WeekData;

@@ -1,6 +1,7 @@
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import { Card } from "@/components/ui/card";
-import NextHours from "./NextHours";
+import TodayData from "../TodayData";
+import useWeather from "../../hooks/useWeather";
 
 // const nextHoursProps = [
 //   {time: '01:00', temperature: '', rain: '', humidity: ''}
@@ -29,7 +30,7 @@ import NextHours from "./NextHours";
 //   {time: '00:00', temperature: '', rain: '', humidity: ''}
 // ];
 
-function TodaySection() {
+function TodayDataSection() {
   return (
     <aside className="container col-span-2">
       <Card className="m-0 p-0 w-full h-full">
@@ -48,4 +49,4 @@ function TodaySection() {
   );
 }
 
-export default TodaySection;
+export default TodayDataSection;
