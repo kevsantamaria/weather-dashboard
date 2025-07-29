@@ -9,7 +9,7 @@ function PageMain() {
   const [city, setCity] = useState("");
 
   return (
-    <main className="m-auto pt-20 max-w-[85%] grid grid-cols-2 grid-rows-2 gap-4">
+    <main className="m-auto max-w-[85%] flex-1 grid grid-cols-2 gap-4">
       <CityInput onSubmit={setCity} />
       <WeekDataSection />
       <GeneralDataSection city={city} />

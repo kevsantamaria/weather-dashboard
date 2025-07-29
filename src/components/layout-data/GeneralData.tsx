@@ -1,6 +1,6 @@
 import useWeather from "../../hooks/useWeather";
 import { Card } from "../ui/card";
-import WeatherIcon from './WeatherIcon'
+import WeatherIcon from "./WeatherIcon";
 
 interface GeneralDataProps {
   city: string;
@@ -28,21 +28,28 @@ function GeneralData({ city }: GeneralDataProps) {
   const today = data?.days[0];
 
   return (
-    <Card className="bg-blue-300 flex flex-row items-center justify-between gap-4 p-2">
-      <section className="flex flex-col">
-        <h2 className="text-4xl font-bold">{`${today?.temp}°`}</h2>
-        <div className="text-gray-700">
-          <span>{`${today?.tempmax}°/${today?.tempmin}°`}</span>
+    <Card className="flex flex-col items-center justify-between gap-4 shadow-xl p-8">
+      <section className="w-full flex flex-row items-center justify-between">
+        <div className="flex flex-col items-center">
+        <span className="text-gray-700 text-sm">{data?.resolvedAddress}</span>
+          <h2 className="text-6xl font-bold">{`${today?.temp}°`}</h2>
+          <div className="text-gray-700">
+            <span>{`${today?.tempmin}°/${today?.tempmax}°`}</span>
+          </div>
         </div>
-        <span>{today?.description}</span>
-        <span>{`Precip Prob: ${today?.precipprob}%`}</span>
-        <span>{`Humidity: ${today?.humidity}`}</span>
-        <span>{`Windspeed: ${today?.windspeed} km/h`}</span>
+        <WeatherIcon icon={today.icon} />
       </section>
-      <section className="flex flex-col items-center">
-      <WeatherIcon icon={today.icon}/>
-        <span>{today?.datetime}</span>
-        <span className="">{data?.resolvedAddress}</span>
+      <section>
+        <section>
+          <span>{today?.description}</span>
+          <span>{`Precip Prob: ${today?.precipprob}%`}</span>
+          <span>{`Humidity: ${today?.humidity}`}</span>
+          <span>{`Windspeed: ${today?.windspeed} km/h`}</span>
+        </section>
+        <section className="flex flex-col items-center">
+          <span>{today?.datetime}</span>
+          <span>{today.feelslike}</span>
+        </section>
       </section>
     </Card>
   );

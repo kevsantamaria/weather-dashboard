@@ -5,11 +5,11 @@ import "./index.css";
 
 function App() {
   return (
-    <>
-      <PageHeader/>
-      <PageMain />
-      <PageFooter />
-    </>
+      <section className="flex flex-col min-h-screen gap-4">
+        <PageHeader />
+        <PageMain />
+        <PageFooter />
+      </section>
   );
 }
 

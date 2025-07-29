@@ -1,4 +1,3 @@
-import { Card } from "../ui/card";
 import GeneralData from '../layout-data/GeneralData'
 
 interface GeneralDataSectionProps {

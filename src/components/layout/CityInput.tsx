@@ -1,4 +1,3 @@
-// CityInput.tsx
 import { Input } from "../ui/input";
 import { Button } from "../ui/button";
 import { useState } from "react";
@@ -11,7 +10,7 @@ function CityInput({ onSubmit }: Props) {
   const [city, setCity] = useState("");
 
   return (
-    <section className="flex items-center justify-center">
+    <section className="flex items-center justify-center gap-4">
       <Input
         type="text"
         placeholder="Enter city name"
