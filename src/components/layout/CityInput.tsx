@@ -11,7 +11,7 @@ function CityInput({ onSubmit }: Props) {
   const [city, setCity] = useState("");
 
   return (
-    <section className="flex items-center justify-center gap-4">
+    <section className="flex items-center justify-center">
       <Input
         type="text"
         placeholder="Enter city name"

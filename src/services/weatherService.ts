@@ -1,11 +1,12 @@
 import axios from "../lib/axios";
 
 export interface WeatherRes {
-  resolvedAdress: string;
-  adress: string;
+  resolvedAddress: string;
+  address: string;
   days: [
     {
       datetime: string;
+      name: string;
       tempmax: number;
       tempmin: number;
       temp: number;
@@ -13,7 +14,7 @@ export interface WeatherRes {
       description: string;
       icon: string;
       humidity: number;
-      precip: number;
+      precipprob: number;
       snow: number;
       windspeed: number;
     }
@@ -21,6 +22,10 @@ export interface WeatherRes {
 }
 
 export const getWeatherByCity = async (city: string): Promise<WeatherRes> => {
-  const res = await axios.get("/timeline/" + encodeURIComponent(city));
+  const res = await axios.get("/timeline/" + encodeURIComponent(city), {
+    params: {
+      iconSet: "icons2"
+    }
+  });
   return res.data;
 };

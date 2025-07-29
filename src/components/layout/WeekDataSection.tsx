@@ -15,6 +15,7 @@ function WeekDataSection() {
   return (
     <aside className="container">
       <section className="flex flex-col gap-2 items-center justify-center">
+        aasfs
         {/* <div key={day}>
           {weekSectionProps.map(({day, weatherImg, temperature, sensation}) => (
             <WeekDays day={day} weatherImg={weatherImg} temperature={temperature} sensation={sensation} />

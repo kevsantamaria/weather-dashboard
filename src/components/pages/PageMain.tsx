@@ -11,8 +11,8 @@ function PageMain() {
   return (
     <main className="m-auto pt-20 max-w-[85%] grid grid-cols-2 grid-rows-2 gap-4">
       <CityInput onSubmit={setCity} />
-      <GeneralDataSection city={city} />
       <WeekDataSection />
+      <GeneralDataSection city={city} />
       <TodayDataSection />
     </main>
   );

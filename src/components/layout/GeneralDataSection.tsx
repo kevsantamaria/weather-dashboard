@@ -10,9 +10,7 @@ function GeneralDataSection({city}: GeneralDataSectionProps) {
   return (
     <aside>
       <section>
-        <Card>
           <GeneralData city={city}/>
-        </Card>
       </section>
     </aside>
   );

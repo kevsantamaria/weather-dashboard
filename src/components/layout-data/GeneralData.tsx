@@ -1,4 +1,6 @@
 import useWeather from "../../hooks/useWeather";
+import { Card } from "../ui/card";
+import WeatherIcon from './WeatherIcon'
 
 interface GeneralDataProps {
   city: string;
@@ -8,11 +10,17 @@ function GeneralData({ city }: GeneralDataProps) {
   const { data, isLoading, error } = useWeather(city);
 
   if (!city) {
-    return <p>Please enter a city to begin.</p>;
+    return <p className="hidden" />;
   } else if (isLoading) {
-    return <p>Loading weather...</p>;
+    return (
+      <p className="flex items-center justify-center">Loading weather...</p>
+    );
   } else if (error) {
-    return <p>Error: {error.message}</p>;
+    return (
+      <p className="flex items-center justify-center text-red-500">
+        Error: {error.message}
+      </p>
+    );
   } else if (!data) {
     return <p>No data available for {city}.</p>;
   }
@@ -20,24 +28,23 @@ function GeneralData({ city }: GeneralDataProps) {
   const today = data?.days[0];
 
   return (
-    <section className="flex flex-col items-start px-4 gap-2">
-      <div className="flex items-center justify-between w-full">
-        <h2 className="text-xl font-bold">{today?.datetime}</h2>
-        <img src="" alt="weather-img" />
-      </div>
-      <section className="flex flex-col items-center">
-        <div className="flex flex-col items-center">
-          <span>{today?.temp}</span>
-          <div className="flex items-center gap-2">
-            <span>{today?.tempmax}</span>
-            <span>{today?.tempmin}</span>
-          </div>
+    <Card className="bg-blue-300 flex flex-row items-center justify-between gap-4 p-2">
+      <section className="flex flex-col">
+        <h2 className="text-4xl font-bold">{`${today?.temp}°`}</h2>
+        <div className="text-gray-700">
+          <span>{`${today?.tempmax}°/${today?.tempmin}°`}</span>
         </div>
-        <li>{today?.description}</li>
-        <li>{today?.precip}</li>
-        <li>{today?.icon}</li>
+        <span>{today?.description}</span>
+        <span>{`Precip Prob: ${today?.precipprob}%`}</span>
+        <span>{`Humidity: ${today?.humidity}`}</span>
+        <span>{`Windspeed: ${today?.windspeed} km/h`}</span>
       </section>
-    </section>
+      <section className="flex flex-col items-center">
+      <WeatherIcon icon={today.icon}/>
+        <span>{today?.datetime}</span>
+        <span className="">{data?.resolvedAddress}</span>
+      </section>
+    </Card>
   );
 }
 
