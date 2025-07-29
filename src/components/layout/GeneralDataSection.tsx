@@ -1,14 +1,17 @@
 import { Card } from "../ui/card";
+import GeneralData from '../layout-data/GeneralData'
 
-function GeneralDataSection() {
+interface GeneralDataSectionProps {
+  city: string;
+}
 
-  const { data, isLoading, error } = useWeather()
+function GeneralDataSection({city}: GeneralDataSectionProps) {
 
   return (
     <aside>
       <section>
         <Card>
-          <h2>General Info</h2>
+          <GeneralData city={city}/>
         </Card>
       </section>
     </aside>

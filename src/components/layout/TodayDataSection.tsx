@@ -1,6 +1,6 @@
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import { Card } from "@/components/ui/card";
-import TodayData from "../TodayData";
+import TodayData from "../layout-data/TodayData";
 import useWeather from "../../hooks/useWeather";
 
 // const nextHoursProps = [

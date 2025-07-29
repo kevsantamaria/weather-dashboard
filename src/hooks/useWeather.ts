@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 import { getWeatherByCity } from '../services/weatherService';
 
-export const useWeather = (city: string) => {
+const useWeather = (city: string) => {
     return useQuery({
         queryKey: ['weather', city],
         queryFn: () => getWeatherByCity(city),
@@ -9,3 +9,5 @@ export const useWeather = (city: string) => {
         staleTime: 1000 * 60 * 5,
     });
 }
+
+export default useWeather;
