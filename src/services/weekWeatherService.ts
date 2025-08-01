@@ -6,7 +6,6 @@ export interface WeatherRes {
   days: [
     {
       datetime: string;
-      name: string;
       temp: number;
       tempmin: number;
       tempmax: number;

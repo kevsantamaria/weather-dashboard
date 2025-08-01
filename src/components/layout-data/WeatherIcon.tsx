@@ -1,12 +1,13 @@
 interface WeatherIconProps {
   icon: string;
+  size?: number;
 }
 
-function WeatherIcon({ icon }: WeatherIconProps) {
+function WeatherIcon({ icon, size = 40 }: WeatherIconProps) {
   const path = `../../../public/img/${icon}.png`;
 
   return (
-    <div className="w-40 h-40">
+    <div style={{width: size, height: size}}>
       <img src={path} alt="Icon weather" className="object-cover" />
     </div>
   );

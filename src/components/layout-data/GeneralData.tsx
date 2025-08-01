@@ -28,10 +28,10 @@ function GeneralData({ city }: Props) {
 
   return (
     <Card className="text-[var(--text-light)] bg-[var(--color-light-accent)] flex flex-col items-left justify-between gap-2 shadow-xl p-6">
-      <section className="w-full flex flex-row items-center justify-between gap-2">
+      <section className="w-full flex flex-row items-center justify-around gap-2">
         <div className="flex flex-col items-center">
           <span className="text-gray-500 text-sm">{today?.datetime}</span>
-          <h3 className="text-6xl font-bold">{`${Math.round(
+          <h3 className="text-7xl font-bold">{`${Math.round(
             today?.temp
           )}°C`}</h3>
           <div className="text-gray-500">
@@ -40,7 +40,7 @@ function GeneralData({ city }: Props) {
             )}°C`}</span>
           </div>
         </div>
-        <WeatherIcon icon={today.icon} />
+        <WeatherIcon icon={today.icon} size={250} />
       </section>
       <section className="flex flex-col gap-2">
         <section className="flex flex-col gap-1">
