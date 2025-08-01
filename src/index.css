@@ -1,8 +1,26 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+:root {
+  --color-primary: #3e7cb1;
+  --color-dark-accent: #054a91;
+  --color-accent: #81a4cd;
+  --color-light-accent: #dbe4ee;
+  --color-yellow-accent: #f17300;
+  
+  /* Light */
+  --bg-light: #ffffff;
+  --text-light: #2d3748;
+
+  /* Dark */
+  --bg-dark: #1a202c;
+  --text-dark: #f7fafc;  
+}
+
 body {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
+  background-color: var(--bg-light);
+  color: var(--text-light);
 }
 
 @custom-variant dark (&:is(.dark *));

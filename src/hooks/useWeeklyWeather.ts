@@ -1,10 +1,10 @@
 import { useQuery } from '@tanstack/react-query';
-import { getWeatherByCity } from '../services/weatherService';
+import { getWeekWeather } from '../services/weekWeatherService';
 
 const useWeather = (city: string) => {
     return useQuery({
-        queryKey: ['weather', city],
-        queryFn: () => getWeatherByCity(city),
+        queryKey: ['weather-week', city],
+        queryFn: () => getWeekWeather(city),
         enabled: !!city,
         staleTime: 1000 * 60 * 5,
     });

@@ -1,16 +1,13 @@
-import GeneralData from '../layout-data/GeneralData'
+import GeneralData from "../layout-data/GeneralData";
 
 interface GeneralDataSectionProps {
   city: string;
 }
 
-function GeneralDataSection({city}: GeneralDataSectionProps) {
-
+function GeneralDataSection({ city }: GeneralDataSectionProps) {
   return (
     <aside>
-      <section>
-          <GeneralData city={city}/>
-      </section>
+      <GeneralData city={city} />
     </aside>
   );
 }

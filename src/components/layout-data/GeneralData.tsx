@@ -1,13 +1,14 @@
-import useWeather from "../../hooks/useWeather";
 import { Card } from "../ui/card";
 import WeatherIcon from "./WeatherIcon";
+import useWeeklyWeather from "../../hooks/useWeeklyWeather";
+import { CloudRain, Droplet, Wind, Thermometer, Snowflake } from "lucide-react";
 
-interface GeneralDataProps {
+interface Props {
   city: string;
 }
 
-function GeneralData({ city }: GeneralDataProps) {
-  const { data, isLoading, error } = useWeather(city);
+function GeneralData({ city }: Props) {
+  const { data, isLoading, error } = useWeeklyWeather(city);
 
   if (!city) {
     return <p className="hidden" />;
@@ -15,40 +16,54 @@ function GeneralData({ city }: GeneralDataProps) {
     return (
       <p className="flex items-center justify-center">Loading weather...</p>
     );
-  } else if (error) {
+  } else if (error || !data) {
     return (
       <p className="flex items-center justify-center text-red-500">
-        Error: {error.message}
+        Loading error, please retry again
       </p>
     );
-  } else if (!data) {
-    return <p>No data available for {city}.</p>;
   }
 
   const today = data?.days[0];
 
   return (
-    <Card className="flex flex-col items-center justify-between gap-4 shadow-xl p-8">
-      <section className="w-full flex flex-row items-center justify-between">
+    <Card className="text-[var(--text-light)] bg-[var(--color-light-accent)] flex flex-col items-left justify-between gap-2 shadow-xl p-6">
+      <section className="w-full flex flex-row items-center justify-between gap-2">
         <div className="flex flex-col items-center">
-        <span className="text-gray-700 text-sm">{data?.resolvedAddress}</span>
-          <h2 className="text-6xl font-bold">{`${today?.temp}°`}</h2>
-          <div className="text-gray-700">
-            <span>{`${today?.tempmin}°/${today?.tempmax}°`}</span>
+          <span className="text-gray-500 text-sm">{today?.datetime}</span>
+          <h3 className="text-6xl font-bold">{`${Math.round(
+            today?.temp
+          )}°C`}</h3>
+          <div className="text-gray-500">
+            <span>{`${Math.round(today?.tempmin)}°C/${Math.round(
+              today?.tempmax
+            )}°C`}</span>
           </div>
         </div>
         <WeatherIcon icon={today.icon} />
       </section>
-      <section>
-        <section>
-          <span>{today?.description}</span>
-          <span>{`Precip Prob: ${today?.precipprob}%`}</span>
-          <span>{`Humidity: ${today?.humidity}`}</span>
-          <span>{`Windspeed: ${today?.windspeed} km/h`}</span>
-        </section>
-        <section className="flex flex-col items-center">
-          <span>{today?.datetime}</span>
-          <span>{today.feelslike}</span>
+      <section className="flex flex-col gap-2">
+        <section className="flex flex-col gap-1">
+          <span className="flex gap-2">
+            <CloudRain />
+            {`Rain: ${today?.precipprob}%`}
+          </span>
+          <span className="flex gap-2">
+            <Droplet />
+            {`Humidity: ${today?.humidity}`}
+          </span>
+          <span className="flex gap-2">
+            <Wind />
+            {`Windspeed: ${today?.windspeed} km/h`}
+          </span>
+          <span className="flex gap-2">
+            <Thermometer />
+            {`Sensation: ${Math.round(today.feelslike)}`}
+          </span>
+          <span className="flex gap-2">
+            <Snowflake />
+            {`Snow: ${Math.round(today.snow)} cm`}
+          </span>
         </section>
       </section>
     </Card>

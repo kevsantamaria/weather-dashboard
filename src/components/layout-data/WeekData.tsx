@@ -1,21 +1,35 @@
 import { Card } from "../ui/card";
+import WeatherIcon from "./WeatherIcon";
+import useWeeklyWeather from '../../hooks/useWeeklyWeather'
 
-interface weekDaysProps {
-  day: string;
-  weatherImg: string;
-  temperature: string;
-  sensation: string;
+interface Props {
+  city: string
 }
 
-function WeekData({ day, weatherImg, temperature, sensation }: weekDaysProps) {
+function WeekData({ city }: Props) {
+
+  const {data, isLoading, error} = useWeeklyWeather(city);
+
+  if (!city) {
+    return <p className='hidden' />
+  } else if (isLoading) {
+    return <p>Loading data...</p>
+  } else if (error || !data) {
+    return <p className='text-red-500'>Error loading</p>
+  }
+
   return (
-    <Card className="min-w-130 flex flex-row justify-around items-center gap-4 text-xl">
-      <h2>{day}</h2>
-      <img src={weatherImg} alt="IMG" />
-      <section className="flex gap-4">
-        <span>{temperature}</span>
-        <span className="text-gray-500">{sensation}</span>
-      </section>
+    <Card className="">
+      {data.days.map((day, index) => (
+          <div key={index}>
+          <h3>{day.name}{day.datetime}</h3>
+          <WeatherIcon icon={day.icon}/>
+          <section className="">
+            <span>{day.precipprob}%</span>
+            <span className="text-gray-500">{}</span>
+          </section>
+        </div>
+      ))}
     </Card>
   );
 }
