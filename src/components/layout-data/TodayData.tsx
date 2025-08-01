@@ -1,13 +1,13 @@
 import { Card } from "../ui/card";
 import WeatherIcon from "./WeatherIcon";
-import useWeather from "../../hooks/useWeeklyWeather";
+import useTodayWeather from "../../hooks/useTodayWeather";
 
 interface Props {
   city: string;
 }
 
 function TodayData({ city }: Props) {
-  const { data, isLoading, error } = useWeather(city);
+  const { data, isLoading, error } = useTodayWeather(city);
 
   if (!city) {
     return <p className="hidden" />;
@@ -16,15 +16,19 @@ function TodayData({ city }: Props) {
   } else if (error || !data) {
     return <p className="text-red-500">Error loading</p>;
   }
+
+  const today = data.days[0];
+  
+
   return (
-    <Card className="">
-      {data.days.map((day, index) => (
-        <div key={index} className="flex flex-row">
-          <h3>{day.hours[0].datetime}</h3>
-        </div>
+    <div className="flex gap-4 px-4">
+      {today.hours.map((hour, index) => (
+        <Card key={index} className="flex flex-col items-center justify-center min-w-[80px] p-2 text-sm">
+          <h3>{hour.datetime.slice(0, 5)}</h3>
+        </Card>
         
       ))}
-    </Card>
+    </div>
   );
 }
 
