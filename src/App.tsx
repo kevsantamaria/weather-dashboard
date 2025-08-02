@@ -10,7 +10,7 @@ function App() {
 
   return (
       <section className="flex flex-col min-h-screen gap-4">
-        <PageHeader onSubmit={setCity}/>
+        <PageHeader city={city} onSubmit={setCity}/>
         <PageMain city={city}/>
         <PageFooter />
       </section>

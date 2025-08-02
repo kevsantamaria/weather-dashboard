@@ -2,10 +2,10 @@
 @import "tw-animate-css";
 
 :root {
-  --color-primary: #3e7cb1;
+  --color-primary: #1495da;
   --color-dark-accent: #054a91;
-  --color-accent: #81a4cd;
-  --color-light-accent: #dbe4ee;
+  --color-accent: #6fe8ed;
+  --color-light-accent: #79cbec;
   --color-yellow-accent: #f17300;
   
   /* Light */
@@ -17,10 +17,20 @@
   --text-dark: #f7fafc;  
 }
 
+/* Dark-mode bg
+background: radial-gradient(farthest-corner at 100% 100%, #441d41ff 0%, #0000ff00 71%), radial-gradient(farthest-corner at 1% 0%, #102c60ff 0%, #ffffff00 66%), radial-gradient(farthest-corner at 100% 0%, #504899ff 0%, #0000ff00 100%), radial-gradient(farthest-corner at 0% 72%, #53267eff 0%, #282735ff 100%);
+background-blend-mode: darken; */
+
 body {
   font-family: "Poppins", sans-serif;
-  background-color: var(--bg-light);
+  background: radial-gradient(farthest-corner at 100% 100%, #b8e6ffff 0%, #0000ff00 43%), radial-gradient(farthest-corner at 1% 0%, #b8eaffff 0%, #ffffff00 68%), radial-gradient(farthest-corner at 100% 0%, #d3d1ffff 0%, #0000ff00 60%), radial-gradient(farthest-corner at 0% 72%, #c7ffe2ff 0%, #ffffffff 100%);
   color: var(--text-light);
+}
+
+.glass-effect {
+  background: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 @custom-variant dark (&:is(.dark *));

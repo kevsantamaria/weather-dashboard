@@ -1,7 +1,14 @@
 import { Card } from "../ui/card";
 import WeatherIcon from "./WeatherIcon";
 import useWeeklyWeather from "../../hooks/useWeeklyWeather";
-import { CloudRain, Droplet, Wind, Thermometer, Snowflake } from "lucide-react";
+import {
+  CloudRain,
+  Droplet,
+  Wind,
+  Thermometer,
+  Snowflake,
+  Sun,
+} from "lucide-react";
 
 interface Props {
   city: string;
@@ -27,8 +34,8 @@ function GeneralData({ city }: Props) {
   const today = data?.days[0];
 
   return (
-    <Card className="text-[var(--text-light)] bg-[var(--color-light-accent)] flex flex-col items-left justify-between gap-2 shadow-xl p-6">
-      <section className="w-full flex flex-row items-center justify-around gap-2">
+    <>
+      <section className="flex items-center justify-around gap-4 mb-5">
         <div className="flex flex-col items-center">
           <span className="text-gray-500 text-sm">{today?.datetime}</span>
           <h3 className="text-7xl font-bold">{`${Math.round(
@@ -40,33 +47,54 @@ function GeneralData({ city }: Props) {
             )}°C`}</span>
           </div>
         </div>
-        <WeatherIcon icon={today.icon} size={250} />
+        <div>
+          <WeatherIcon icon={today.icon} size={150} />
+        </div>
       </section>
-      <section className="flex flex-col gap-2">
-        <section className="flex flex-col gap-1">
-          <span className="flex gap-2">
-            <CloudRain />
-            {`Rain: ${today?.precipprob}%`}
-          </span>
-          <span className="flex gap-2">
-            <Droplet />
-            {`Humidity: ${today?.humidity}`}
-          </span>
-          <span className="flex gap-2">
-            <Wind />
-            {`Windspeed: ${today?.windspeed} km/h`}
-          </span>
+
+      <section className="grid grid-cols-2 gap-2">
+        {today?.precipprob > 0 && (
+          <Card className="flex items-center justify-center glass-effect">
+            <span className="flex gap-2">
+              <CloudRain />
+              {`Rain: ${today?.precipprob}%`}
+            </span>
+          </Card>
+        )}
+        <Card className="flex items-center justify-center glass-effect">
           <span className="flex gap-2">
             <Thermometer />
-            {`Sensation: ${Math.round(today.feelslike)}`}
+            {`Sensation: ${Math.round(today.feelslike)}°C`}
           </span>
+        </Card>
+        <Card className="flex items-center justify-center glass-effect">
           <span className="flex gap-2">
-            <Snowflake />
-            {`Snow: ${Math.round(today.snow)} cm`}
+            <Droplet />
+            {`Humidity: ${Math.round(today?.humidity)}%`}
           </span>
-        </section>
+        </Card>
+        <Card className="flex items-center justify-center glass-effect">
+          <span className="flex gap-2">
+            <Wind />
+            {`Wind: ${Math.round(today?.windspeed)} km/h`}
+          </span>
+        </Card>
+        {today?.snow > 0 && (
+          <Card className="flex items-center justify-center glass-effect">
+            <span className="flex gap-2">
+              <Snowflake />
+              {`Snow: ${Math.round(today.snow)} cm`}
+            </span>
+          </Card>
+        )}
+        <Card className="flex items-center justify-center glass-effect">
+          <span className="flex gap-2">
+            <Sun />
+            {`UV Index: ${Math.round(today.uvindex)}`}
+          </span>
+        </Card>
       </section>
-    </Card>
+    </>
   );
 }
 

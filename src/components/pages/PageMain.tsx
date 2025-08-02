@@ -1,24 +1,31 @@
 import GeneralDataSection from "../layout/GeneralDataSection";
 import TodayDataSection from "../layout/TodayDataSection";
 import WeekDataSection from "../layout/WeekDataSection";
-import useWeeklyWeather from "../../hooks/useWeeklyWeather";
 
-interface PageMainProps {
+interface Props {
   city: string;
 }
 
-function PageMain({ city }: PageMainProps) {
-  const { data } = useWeeklyWeather(city);
-
+function PageMain({ city }: Props) {
   return (
-    <main className="m-auto md:max-w-[85%] w-full flex-1 md:grid md:grid-cols-2 gap-4">
-      <section className="flex flex-col gap-4">
-        <h2 className="text-3xl font-bold pb-3">{data?.resolvedAddress}</h2>
-        <GeneralDataSection city={city} />
-        <TodayDataSection city={city} />
-      </section>
-      <WeekDataSection city={city} />
-    </main>
+    <>
+      {!city && (
+        <section className="flex items-center justify-center h-full">
+          <p className="text-gray-500">
+            Please enter a city to get weather data.
+          </p>
+        </section>
+      )}
+      <main className="mx-auto md:w-[90%] w-[95%] grid flex-1 grid-cols-1 md:grid-cols-2 gap-4">
+        {city && (
+          <section className="flex flex-col gap-4">
+            <GeneralDataSection city={city} />
+            <TodayDataSection city={city} />
+          </section>
+        )}
+        <WeekDataSection city={city} />
+      </main>
+    </>
   );
 }
 

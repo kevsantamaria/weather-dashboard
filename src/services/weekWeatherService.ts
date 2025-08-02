@@ -14,8 +14,8 @@ export interface WeatherRes {
       windspeed: number;
       feelslike: number;
       snow: number;
+      uvindex: number;
       icon: string;
-      description: string;
       hours: {
         datetime: string;
         temp: number;

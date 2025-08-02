@@ -1,14 +1,17 @@
-import { Switch } from "@/components/ui/switch";
 import CityInput from "../layout/CityInput";
+import useWeeklyWeather from "../../hooks/useWeeklyWeather";
 
-interface PageHeaderProps {
+interface Props {
   onSubmit: (city: string) => void;
+  city: string;
 }
 
-function PageHeader({ onSubmit }: PageHeaderProps) {
+function PageHeader({ onSubmit, city }: Props) {
+  const { data } = useWeeklyWeather(city);
+
   return (
-    <header className="container bg-[var(--color-primary)] text-white min-w-screen p-4 flex items-center justify-between">
-      <h1 className="font-bold md:text-xl">Weather Dashboard</h1>
+    <header className="min-w-screen p-4 px-6 flex items-center justify-between">
+      <h1 className="font-bold text-2xl">{data?.resolvedAddress || "Weather Dashboard"}</h1>
       <div className="flex">
         <CityInput onSubmit={onSubmit} />
       </div>
