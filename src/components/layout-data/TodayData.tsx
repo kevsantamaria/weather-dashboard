@@ -9,16 +9,16 @@ interface Props {
 }
 
 function TodayData({ city }: Props) {
+  if (!city) return null;
   const { data, isLoading, error } = useNext24hWeather(city);
 
-  if (!city) {
-    return <p className="hidden" />;
-  } else if (isLoading) {
-    return <p>Loading data...</p>;
+  if (isLoading) {
+    console.log("Loading TodayData weather...");
+    return null;
   } else if (error || !data) {
-    return <p className="text-red-500">Error loading</p>;
+    console.error("Error loading TodayData weather");
+    return null;
   }
-
   return (
     <Card className="m-0 p-0 w-full h-full glass-effect">
       <ScrollArea className="w-full max-w-full overflow-hidden whitespace-nowrap">

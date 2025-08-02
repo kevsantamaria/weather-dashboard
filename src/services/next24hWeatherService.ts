@@ -3,12 +3,13 @@ import axios from "../lib/axios";
 export interface HourData {
   datetime: string;
   temp: number;
-  feelslike: number;
+  precipprob: number;
   humidity: number;
   windspeed: number;
-  precipprob: number;
-  icon: string;
-  conditions: string;
+  feelslike: number;
+  snow: number;
+  uvindex: number;
+  icon: string
 }
 
 export interface Weather24hRes {

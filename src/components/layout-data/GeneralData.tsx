@@ -1,6 +1,7 @@
 import { Card } from "../ui/card";
 import WeatherIcon from "./WeatherIcon";
 import useWeeklyWeather from "../../hooks/useWeeklyWeather";
+import useNext24hWeather from "../../hooks/useNext24hWeather";
 import {
   CloudRain,
   Droplet,
@@ -15,23 +16,32 @@ interface Props {
 }
 
 function GeneralData({ city }: Props) {
-  const { data, isLoading, error } = useWeeklyWeather(city);
+  if (!city) return null;
+  const {
+    data: weeklyData,
+    isLoading: loadingWeekly,
+    error: errorWeekly,
+  } = useWeeklyWeather(city);
+  const {
+    data: hourlyData,
+    isLoading: loadingHourly,
+    error: errorHourly,
+  } = useNext24hWeather(city);
 
-  if (!city) {
-    return <p className="hidden" />;
-  } else if (isLoading) {
+  if (loadingWeekly || loadingHourly) {
+    console.log("Loading GeneralData weather...");
+    return null;
+  } else if (errorWeekly || !weeklyData || errorHourly || !hourlyData) {
+    console.error("Error loading GeneralData weather");
     return (
-      <p className="flex items-center justify-center">Loading weather...</p>
-    );
-  } else if (error || !data) {
-    return (
-      <p className="flex items-center justify-center text-red-500">
+      <Card className="flex items-center justify-center text-red-500">
         Loading error, please retry again
-      </p>
+      </Card>
     );
   }
 
-  const today = data?.days[0];
+  const today = weeklyData.days[0];
+  const nowHour = hourlyData.hours[0];
 
   return (
     <>
@@ -39,7 +49,7 @@ function GeneralData({ city }: Props) {
         <div className="flex flex-col items-center">
           <span className="text-gray-500 text-sm">{today?.datetime}</span>
           <h3 className="text-7xl font-bold">{`${Math.round(
-            today?.temp
+            nowHour?.temp
           )}°C`}</h3>
           <div className="text-gray-500">
             <span>{`${Math.round(today?.tempmin)}°C/${Math.round(
@@ -48,49 +58,49 @@ function GeneralData({ city }: Props) {
           </div>
         </div>
         <div>
-          <WeatherIcon icon={today.icon} size={150} />
+          <WeatherIcon icon={nowHour.icon} size={150} />
         </div>
       </section>
 
       <section className="grid grid-cols-2 gap-2">
-        {today?.precipprob > 0 && (
+        {nowHour?.precipprob > 0 && (
           <Card className="flex items-center justify-center glass-effect">
             <span className="flex gap-2">
               <CloudRain />
-              {`Rain: ${today?.precipprob}%`}
+              {`Rain: ${nowHour?.precipprob}%`}
             </span>
           </Card>
         )}
         <Card className="flex items-center justify-center glass-effect">
           <span className="flex gap-2">
             <Thermometer />
-            {`Sensation: ${Math.round(today.feelslike)}°C`}
+            {`Sensation: ${Math.round(nowHour.feelslike)}°C`}
           </span>
         </Card>
         <Card className="flex items-center justify-center glass-effect">
           <span className="flex gap-2">
             <Droplet />
-            {`Humidity: ${Math.round(today?.humidity)}%`}
+            {`Humidity: ${Math.round(nowHour?.humidity)}%`}
           </span>
         </Card>
         <Card className="flex items-center justify-center glass-effect">
           <span className="flex gap-2">
             <Wind />
-            {`Wind: ${Math.round(today?.windspeed)} km/h`}
+            {`Wind: ${Math.round(nowHour?.windspeed)} km/h`}
           </span>
         </Card>
-        {today?.snow > 0 && (
+        {nowHour?.snow > 0 && (
           <Card className="flex items-center justify-center glass-effect">
             <span className="flex gap-2">
               <Snowflake />
-              {`Snow: ${Math.round(today.snow)} cm`}
+              {`Snow: ${Math.round(nowHour.snow)} cm`}
             </span>
           </Card>
         )}
         <Card className="flex items-center justify-center glass-effect">
           <span className="flex gap-2">
             <Sun />
-            {`UV Index: ${Math.round(today.uvindex)}`}
+            {`UV Index: ${Math.round(nowHour.uvindex)}`}
           </span>
         </Card>
       </section>

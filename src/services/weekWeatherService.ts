@@ -15,17 +15,7 @@ export interface WeatherRes {
       feelslike: number;
       snow: number;
       uvindex: number;
-      icon: string;
-      hours: {
-        datetime: string;
-        temp: number;
-        feelslike: number;
-        humidity: number;
-        windspeed: number;
-        precipprob: number;
-        icon: string;
-        conditions: string;
-      }[];
+      icon: string
     }
   ];
 }

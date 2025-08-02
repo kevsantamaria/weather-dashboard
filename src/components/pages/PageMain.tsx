@@ -18,12 +18,14 @@ function PageMain({ city }: Props) {
       )}
       <main className="mx-auto md:w-[90%] w-[95%] grid flex-1 grid-cols-1 md:grid-cols-2 gap-4">
         {city && (
-          <section className="flex flex-col gap-4">
-            <GeneralDataSection city={city} />
-            <TodayDataSection city={city} />
-          </section>
+          <>
+            <section className="flex flex-col gap-4">
+              <GeneralDataSection city={city} />
+              <TodayDataSection city={city} />
+            </section>
+            <WeekDataSection city={city} />
+          </>
         )}
-        <WeekDataSection city={city} />
       </main>
     </>
   );

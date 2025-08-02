@@ -7,16 +7,16 @@ import { Separator } from "../ui/separator";
 interface Props {
   city: string;
 }
-
 function WeekData({ city }: Props) {
+  if (!city) return null;
   const { data, isLoading, error } = useWeeklyWeather(city);
 
-  if (!city) {
-    return <p className="hidden" />;
-  } else if (isLoading) {
-    return <p>Loading data...</p>;
+  if (isLoading) {
+    console.log("Loading WeekData weather...");
+    return null;
   } else if (error || !data) {
-    return <p className="text-red-500">Error loading</p>;
+    console.error("Error loading WeekData weather");
+    return null;
   }
 
   return (

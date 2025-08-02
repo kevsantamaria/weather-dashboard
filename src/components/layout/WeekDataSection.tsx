@@ -1,4 +1,3 @@
-import { Card } from "../ui/card";
 import WeekData from '../layout-data/WeekData'
 
 interface Props {

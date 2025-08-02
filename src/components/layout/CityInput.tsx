@@ -31,7 +31,6 @@ function CityInput({ onSubmit }: Props) {
         <Button
         type="submit"
           className="bg-[var(--color-primary)] hover:bg-[var(--color-dark-accent)] font-bold cursor-pointer"
-          onClick={() => onSubmit(city)}
         >
           <span className="hidden md:flex items-center gap-1">
             Search <Search strokeWidth={4} />
