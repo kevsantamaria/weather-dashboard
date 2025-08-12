@@ -10,9 +10,9 @@ function PrecipitationChart({city}: Props) {
     getComputedStyle(document.documentElement).getPropertyValue(name).trim();
 
   const getColor = (prob: number) => {
-    if (prob > 70) return getCssVar("--color-secondary-high")
-    if(prob > 30) return getCssVar("--color-secondary")
-    return getCssVar("--color-secondary-low")
+    if (prob > 70) return getCssVar("--color-primary-high")
+    if(prob > 30) return getCssVar("--color-primary")
+    return getCssVar("--color-primary-low")
   }
   
     return (

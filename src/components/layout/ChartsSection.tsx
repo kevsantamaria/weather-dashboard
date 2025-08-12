@@ -1,4 +1,5 @@
 import PrecipitationChart from "../layout-data/PrecipitationChart";
+import TemperatureChart from "../layout-data/TemperatureChart";
 import useWeeklyWeather from "../../hooks/useWeeklyWeather";
 
 interface Props {
@@ -21,15 +22,23 @@ function ChartsSection({ city }: Props) {
     data?.days.map((day) => ({
       datetime: day.datetime,
       precipprob: day.precipprob,
+      tempmax: day.tempmax,
+      tempmin: day.tempmin,
     })) ?? [];
 
   return (
-    <section className="flex flex-col gap-4">
-      <h3 className="font-bold text-2xl">Chance of rain</h3>
-      <aside>
+    <aside className="flex flex-col gap-4">
+      <div>
+        <h3 className="font-bold text-2xl mb-3">Chance of rain</h3>
         <PrecipitationChart city={chartData} />
-      </aside>
-    </section>
+      </div>
+      <div>
+        <h3 className="font-bold text-2xl mb-3">
+          Weekly Min and Max Temperatures
+        </h3>
+        <TemperatureChart city={chartData} />
+      </div>
+    </aside>
   );
 }
 

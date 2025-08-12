@@ -3,9 +3,9 @@
 
 :root {
   --color-primary: #1b99d3;
+  --color-primary-low: #5eb9f1;
+  --color-primary-high: #146f9f;
   --color-secondary: #43a591;
-  --color-secondary-high: #1e6457;
-  --color-secondary-low: #a4d8cd;
   --color-yellow-accent: #f6cd4b;
   --color-primary-hover: #0d8bc7;
 
