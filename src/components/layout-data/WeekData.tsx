@@ -20,7 +20,7 @@ function WeekData({ city }: Props) {
   }
 
   return (
-    <Card className="">
+    <Card>
       {data.days.map((day, index) => {
         const weekDay = new Date(day.datetime).toLocaleDateString("en-EN", {
           weekday: "long",

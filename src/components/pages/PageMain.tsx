@@ -8,7 +8,7 @@ interface Props {
 
 function PageMain({ city }: Props) {
   return (
-    <>
+    <div className="flex flex-col flex-1 w-full"> {/* Contenedor padre clave */}
       {!city && (
         <section className="flex items-center justify-center h-full">
           <p className="text-gray-500">
@@ -16,18 +16,17 @@ function PageMain({ city }: Props) {
           </p>
         </section>
       )}
-      <main className="mx-auto md:w-[90%] w-[95%] grid flex-1 grid-cols-1 md:grid-cols-2 gap-4">
-        {city && (
-          <>
-            <section className="flex flex-col gap-4">
-              <GeneralDataSection city={city} />
-              <TodayDataSection city={city} />
-            </section>
-            <WeekDataSection city={city} />
-          </>
-        )}
-      </main>
-    </>
+      
+      {city && (
+        <main className="flex-1 w-full max-w-[1800px] mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-4">
+          <section className="flex flex-col gap-4">
+            <GeneralDataSection city={city} />
+            <TodayDataSection city={city} />
+          </section>
+          <WeekDataSection city={city} />
+        </main>
+      )}
+    </div>
   );
 }
 

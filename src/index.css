@@ -2,28 +2,38 @@
 @import "tw-animate-css";
 
 :root {
-  --color-primary: #1495da;
-  --color-dark-accent: #054a91;
-  --color-accent: #6fe8ed;
-  --color-light-accent: #79cbec;
-  --color-yellow-accent: #f17300;
-  
+  --color-primary: #1b99d3;
+  --color-secondary: #43a591;
+  --color-yellow-accent: #f6cd4b;
+  --color-primary-hover: #0d8bc7;
+
   /* Light */
-  --bg-light: #ffffff;
   --text-light: #2d3748;
+  --gradient-light: radial-gradient(
+      farthest-corner at 100% 100%,
+      #b8e6ffff 0%,
+      #0000ff00 43%
+    ),
+    radial-gradient(farthest-corner at 1% 0%, #b8eaffff 0%, #ffffff00 68%),
+    radial-gradient(farthest-corner at 100% 0%, #d3d1ffff 0%, #0000ff00 60%),
+    radial-gradient(farthest-corner at 0% 72%, #c7ffe2ff 0%, #ffffffff 100%);
 
   /* Dark */
-  --bg-dark: #1a202c;
-  --text-dark: #f7fafc;  
+  --text-dark: #f7fafc;
+  --gradient-dark: radial-gradient(
+      farthest-corner at 100% 100%,
+      #441d41ff 0%,
+      #0000ff00 71%
+    ),
+    radial-gradient(farthest-corner at 1% 0%, #102c60ff 0%, #ffffff00 66%),
+    radial-gradient(farthest-corner at 100% 0%, #504899ff 0%, #0000ff00 100%),
+    radial-gradient(farthest-corner at 0% 72%, #53267eff 0%, #282735ff 100%),
+    darken;
 }
-
-/* Dark-mode bg
-background: radial-gradient(farthest-corner at 100% 100%, #441d41ff 0%, #0000ff00 71%), radial-gradient(farthest-corner at 1% 0%, #102c60ff 0%, #ffffff00 66%), radial-gradient(farthest-corner at 100% 0%, #504899ff 0%, #0000ff00 100%), radial-gradient(farthest-corner at 0% 72%, #53267eff 0%, #282735ff 100%);
-background-blend-mode: darken; */
 
 body {
   font-family: "Poppins", sans-serif;
-  background: radial-gradient(farthest-corner at 100% 100%, #b8e6ffff 0%, #0000ff00 43%), radial-gradient(farthest-corner at 1% 0%, #b8eaffff 0%, #ffffff00 68%), radial-gradient(farthest-corner at 100% 0%, #d3d1ffff 0%, #0000ff00 60%), radial-gradient(farthest-corner at 0% 72%, #c7ffe2ff 0%, #ffffffff 100%);
+  background: var(--gradient-light);
   color: var(--text-light);
 }
 
