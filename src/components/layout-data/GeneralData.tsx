@@ -1,7 +1,7 @@
-import { Card } from "../ui/card";
-import WeatherIcon from "./WeatherIcon";
-import useWeeklyWeather from "../../hooks/useWeeklyWeather";
-import useNext24hWeather from "../../hooks/useNext24hWeather";
+import { Card } from '../ui/card';
+import WeatherIcon from './WeatherIcon';
+import useWeeklyWeather from '../../hooks/useWeeklyWeather';
+import useNext24hWeather from '../../hooks/useNext24hWeather';
 import {
   CloudRain,
   Droplet,
@@ -9,7 +9,7 @@ import {
   Thermometer,
   Snowflake,
   Sun,
-} from "lucide-react";
+} from 'lucide-react';
 
 interface Props {
   city: string;
@@ -29,10 +29,10 @@ function GeneralData({ city }: Props) {
   } = useNext24hWeather(city);
 
   if (loadingWeekly || loadingHourly) {
-    console.log("Loading GeneralData weather...");
+    console.log('Loading GeneralData weather...');
     return null;
   } else if (errorWeekly || !weeklyData || errorHourly || !hourlyData) {
-    console.error("Error loading GeneralData weather");
+    console.error('Error loading GeneralData weather');
     return (
       <Card className="flex items-center justify-center text-red-500">
         Loading error, please retry again

@@ -1,4 +1,4 @@
-import TodayData from "../layout-data/TodayData";
+import TodayData from '../layout-data/TodayData';
 
 interface Props {
   city: string;

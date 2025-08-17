@@ -1,4 +1,4 @@
-import GeneralData from "../layout-data/GeneralData";
+import GeneralData from '../layout-data/GeneralData';
 
 interface GeneralDataSectionProps {
   city: string;

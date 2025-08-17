@@ -1,4 +1,4 @@
-import axios from "../lib/axios";
+import axios from '../lib/axios';
 
 export interface HourData {
   datetime: string;
@@ -9,19 +9,24 @@ export interface HourData {
   feelslike: number;
   snow: number;
   uvindex: number;
-  icon: string
+  icon: string;
 }
 
 export interface Weather24hRes {
   hours: HourData[];
 }
 
-export const getNext24hWeather = async (city: string): Promise<Weather24hRes> => {
-  const res = await axios.get(`/timeline/${encodeURIComponent(city)}/next2days`, {
-    params: {
-      iconSet: "icons2",
-    },
-  });
+export const getNext24hWeather = async (
+  city: string
+): Promise<Weather24hRes> => {
+  const res = await axios.get(
+    `/timeline/${encodeURIComponent(city)}/next2days`,
+    {
+      params: {
+        iconSet: 'icons2',
+      },
+    }
+  );
 
   const now = new Date();
 

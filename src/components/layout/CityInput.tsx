@@ -1,25 +1,28 @@
-import { Input } from "../ui/input";
-import { Button } from "../ui/button";
-import { useState } from "react";
-import { Search } from "lucide-react";
+import { Input } from '../ui/input';
+import { Button } from '../ui/button';
+import { useState } from 'react';
+import { Search } from 'lucide-react';
 
 interface Props {
   onSubmit: (city: string) => void;
 }
 
 function CityInput({ onSubmit }: Props) {
-  const [city, setCity] = useState("");
+  const [city, setCity] = useState('');
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (city.trim() === "") return;
+    if (city.trim() === '') return;
     onSubmit(city.trim());
-    setCity("");
-  }
+    setCity('');
+  };
 
   return (
     <section>
-      <form onSubmit={handleSubmit} className="flex items-center md:justify-end gap-2">
+      <form
+        onSubmit={handleSubmit}
+        className="flex items-center md:justify-end gap-2"
+      >
         <Input
           type="text"
           placeholder="Enter city name"
@@ -29,7 +32,7 @@ function CityInput({ onSubmit }: Props) {
           autoFocus
         />
         <Button
-        type="submit"
+          type="submit"
           className="bg-[var(--color-primary)] hover:bg-[var(--color-primary-hover)] font-bold cursor-pointer"
         >
           <span className="hidden md:flex items-center gap-1">

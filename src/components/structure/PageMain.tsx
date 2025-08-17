@@ -1,6 +1,6 @@
-import GeneralDataSection from "../layout/GeneralDataSection";
-import TodayDataSection from "../layout/TodayDataSection";
-import ChartsSection from "../layout/ChartsSection";
+import GeneralDataSection from '../layout/GeneralDataSection';
+import TodayDataSection from '../layout/TodayDataSection';
+import ChartsSection from '../layout/ChartsSection';
 
 interface Props {
   city: string;
@@ -16,7 +16,7 @@ function PageMain({ city }: Props) {
           </p>
         </section>
       )}
-      
+
       {city && (
         <main className="flex-1 w-full max-w-[95vw] mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-4">
           <section className="flex flex-col gap-4">

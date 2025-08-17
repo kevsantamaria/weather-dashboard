@@ -7,7 +7,7 @@ import {
   Tooltip,
   Legend,
   ResponsiveContainer,
-} from "recharts";
+} from 'recharts';
 
 interface Props {
   city: { datetime: string; tempmax: number; tempmin: number }[];
@@ -20,7 +20,7 @@ function TemperatureChart({ city }: Props) {
         <CartesianGrid strokeDasharray="3 3" />
         <XAxis dataKey="datetime" />
         <YAxis
-          domain={["dataMin - 5", "dataMax + 5"]}
+          domain={['dataMin - 5', 'dataMax + 5']}
           tickFormatter={(val) => `${val}°C`}
         />
         <Tooltip formatter={(value: number) => `${value}°C`} />

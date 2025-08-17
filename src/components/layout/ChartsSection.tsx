@@ -1,6 +1,6 @@
-import PrecipitationChart from "../layout-data/PrecipitationChart";
-import TemperatureChart from "../layout-data/TemperatureChart";
-import useWeeklyWeather from "../../hooks/useWeeklyWeather";
+import PrecipitationChart from '../layout-data/PrecipitationChart';
+import TemperatureChart from '../layout-data/TemperatureChart';
+import useWeeklyWeather from '../../hooks/useWeeklyWeather';
 
 interface Props {
   city: string;
@@ -11,10 +11,10 @@ function ChartsSection({ city }: Props) {
   const { data, isLoading, error } = useWeeklyWeather(city);
 
   if (isLoading) {
-    console.log("Loading PrecipitationChart...");
+    console.log('Loading PrecipitationChart...');
     return null;
   } else if (error) {
-    console.error("Error loading PrecipitationChart");
+    console.error('Error loading PrecipitationChart');
     return null;
   }
 

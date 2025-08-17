@@ -1,4 +1,4 @@
-import axios from "../lib/axios";
+import axios from '../lib/axios';
 
 export interface WeatherRes {
   resolvedAddress: string;
@@ -15,18 +15,18 @@ export interface WeatherRes {
       feelslike: number;
       snow: number;
       uvindex: number;
-      icon: string
+      icon: string;
     }
   ];
 }
 
 export const getWeekWeather = async (city: string): Promise<WeatherRes> => {
-  console.log("Getting weather for:", city);
+  console.log('Getting weather for:', city);
   const res = await axios.get(
     `/timeline/${encodeURIComponent(city)}/next7days`,
     {
       params: {
-        iconSet: "icons2",
+        iconSet: 'icons2',
       },
     }
   );

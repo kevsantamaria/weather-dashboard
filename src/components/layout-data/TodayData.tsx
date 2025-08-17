@@ -1,8 +1,8 @@
-import { Card } from "../ui/card";
-import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
-import WeatherIcon from "./WeatherIcon";
-import useNext24hWeather from "../../hooks/useNext24hWeather";
-import { CloudRain, SunSnow } from "lucide-react";
+import { Card } from '../ui/card';
+import { ScrollArea, ScrollBar } from '@/components/ui/scroll-area';
+import WeatherIcon from './WeatherIcon';
+import useNext24hWeather from '../../hooks/useNext24hWeather';
+import { CloudRain, SunSnow } from 'lucide-react';
 
 interface Props {
   city: string;
@@ -13,10 +13,10 @@ function TodayData({ city }: Props) {
   const { data, isLoading, error } = useNext24hWeather(city);
 
   if (isLoading) {
-    console.log("Loading TodayData weather...");
+    console.log('Loading TodayData weather...');
     return null;
   } else if (error || !data) {
-    console.error("Error loading TodayData weather");
+    console.error('Error loading TodayData weather');
     return null;
   }
   return (
