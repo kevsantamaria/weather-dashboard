@@ -29,7 +29,7 @@ function ChartsSection({ city }: Props) {
   return (
     <aside className="flex flex-col gap-4">
       <div>
-        <h3 className="font-bold text-2xl mb-3">Chance of rain</h3>
+        <h3 className="font-bold text-2xl mb-3">Weekly Chance of Rain</h3>
         <PrecipitationChart city={chartData} />
       </div>
       <div>

@@ -45,7 +45,7 @@ function GeneralData({ city }: Props) {
 
   return (
     <>
-      <section className="flex items-center justify-around gap-4 mb-5">
+      <section className="flex items-center justify-around gap-4 mb-10">
         <div className="flex flex-col items-center">
           <span className="text-gray-500 text-sm">{today?.datetime}</span>
           <h3 className="text-7xl font-bold">{`${Math.round(
