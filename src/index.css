@@ -3,6 +3,8 @@
 
 :root {
   --color-primary: #1b99d3;
+  --color-primary-high: #0f5f8c;
+  --color-primary-low: #7fc6e8;
   --color-primary-hover: #0d8bc7;
 
   /* Light */

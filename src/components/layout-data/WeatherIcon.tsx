@@ -1,9 +1,9 @@
-interface WeatherIconProps {
+interface Props {
   icon: string;
   size?: number;
 }
 
-function WeatherIcon({ icon, size = 40 }: WeatherIconProps) {
+function WeatherIcon({ icon, size = 40 }: Props) {
   const path = `../../../public/img/${icon}.png`;
 
   return (

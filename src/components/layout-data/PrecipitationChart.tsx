@@ -30,7 +30,7 @@ function PrecipitationChart({ city }: Props) {
         <XAxis dataKey="datetime" />
         <YAxis domain={[0, 100]} tickFormatter={(val) => `${val}%`} />
         <Tooltip formatter={(value: number) => `${value}%`} />
-        <Bar dataKey="precipprob" radius={[10, 10, 0, 0]}>
+        <Bar dataKey="precipprob" name="Precipitation"  radius={[10, 10, 0, 0]}>
           {city.map((entry, index) => (
             <Cell key={`cell-${index}`} fill={getColor(entry.precipprob)} />
           ))}

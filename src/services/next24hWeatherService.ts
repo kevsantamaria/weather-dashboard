@@ -1,7 +1,9 @@
 import api from '../api/visualCrossing';
+import dayjs from '../lib/dayjs';
+import { Dayjs } from 'dayjs'
 
-export interface HourData {
-  datetime: string;
+export type HourData = {
+  time: string;
   temp: number;
   precipprob: number;
   humidity: number;
@@ -10,41 +12,65 @@ export interface HourData {
   snow: number;
   uvindex: number;
   icon: string;
-}
+};
 
-export interface Weather24hRes {
+export type Weather24hRes = {
   hours: HourData[];
-}
+};
 
-export const getNext24hWeather = async (
-  city: string
-): Promise<Weather24hRes> => {
-  const res = await api.get(
-    `/timeline/${encodeURIComponent(city)}/next2days`,
-    {
-      params: {
-        iconSet: 'icons2',
-      },
-    }
-  );
+// Tipos de la API de Visual Crossing
+export type ApiHour = {
+  datetime: string; // "HH:mm:ss"
+  temp: number;
+  precipprob: number;
+  humidity: number;
+  windspeed: number;
+  feelslike: number;
+  snow: number;
+  uvindex: number;
+  icon: string;
+};
 
-  const now = new Date();
+export type ApiDay = {
+  datetime: string; // "YYYY-MM-DD"
+  hours: ApiHour[];
+};
 
-  // Combina las horas de hoy y mañana
-  const allHours = res.data.days.flatMap((day: any) => {
-    return day.hours.map((hour: any) => ({
-      ...hour,
-      date: day.datetime, // Necesario para formar la fecha completa luego
-    }));
+export type HourDataRaw = ApiHour & {
+  fullDate: Dayjs;
+};
+
+export const getNext24hWeather = async (city: string): Promise<Weather24hRes> => {
+  const { data } = await api.get(`/timeline/${encodeURIComponent(city)}/next2days`, {
+    params: { iconSet: 'icons2' },
   });
 
-  // Filtra las horas que son posteriores a "ahora"
-  const upcomingHours = allHours
-    .filter((hour: any) => {
-      const fullDate = new Date(`${hour.date}T${hour.datetime}`);
-      return fullDate > now;
+  const timezone: string | undefined = data?.timezone;
+  if (!timezone) throw new Error("No 'timezone' in the API response");
+
+  const now = dayjs().tz(timezone);
+
+  const allHours: HourDataRaw[] = ((data.days ?? []) as ApiDay[]).flatMap((day) =>
+    (day.hours ?? []).map((hour) => {
+      const fullDate = dayjs.tz(`${day.datetime}T${hour.datetime}`, timezone);
+      return { ...hour, fullDate };
     })
-    .slice(0, 24); // Solo las siguientes 24 horas
+  );  
+
+  const upcomingHours: HourData[] = allHours
+    .filter((h) => h.fullDate.isAfter(now))
+    .slice(0, 24)
+    .map((h) => ({
+      time: h.fullDate.format('HH:mm'),
+      temp: h.temp,
+      precipprob: h.precipprob,
+      humidity: h.humidity,
+      windspeed: h.windspeed,
+      feelslike: h.feelslike,
+      snow: h.snow,
+      uvindex: h.uvindex,
+      icon: h.icon,
+    }));
 
   return { hours: upcomingHours };
 };

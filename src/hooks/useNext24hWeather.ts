@@ -6,7 +6,6 @@ const useNext24hWeather = (city: string) => {
     queryKey: ['weather-next24h', city],
     queryFn: () => getNext24hWeather(city),
     enabled: !!city,
-    staleTime: 1000 * 60 * 5, // 5 minutos
   });
 };
 

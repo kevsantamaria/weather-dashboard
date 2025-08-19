@@ -22,7 +22,7 @@ export interface WeatherRes {
 
 export const getWeekWeather = async (city: string): Promise<WeatherRes> => {
   console.log('Getting weather for:', city);
-  const res = await api.get(
+  const { data } = await api.get(
     `/timeline/${encodeURIComponent(city)}/next7days`,
     {
       params: {
@@ -30,5 +30,5 @@ export const getWeekWeather = async (city: string): Promise<WeatherRes> => {
       },
     }
   );
-  return res.data;
+  return data;
 };

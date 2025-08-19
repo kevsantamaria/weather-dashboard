@@ -6,7 +6,6 @@ const useWeather = (city: string) => {
     queryKey: ['weather-week', city],
     queryFn: () => getWeekWeather(city),
     enabled: !!city,
-    staleTime: 1000 * 60 * 5,
   });
 };
 
