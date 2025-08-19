@@ -1,4 +1,4 @@
-import axios from '../lib/axios';
+import api from '../api/visualCrossing';
 
 export interface WeatherRes {
   resolvedAddress: string;
@@ -22,7 +22,7 @@ export interface WeatherRes {
 
 export const getWeekWeather = async (city: string): Promise<WeatherRes> => {
   console.log('Getting weather for:', city);
-  const res = await axios.get(
+  const res = await api.get(
     `/timeline/${encodeURIComponent(city)}/next7days`,
     {
       params: {

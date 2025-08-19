@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const axiosInstance = axios.create({
+const api = axios.create({
   baseURL:
     'https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services',
   params: {
@@ -10,4 +10,4 @@ const axiosInstance = axios.create({
   },
 });
 
-export default axiosInstance;
+export default api;

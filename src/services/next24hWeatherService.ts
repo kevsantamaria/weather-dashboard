@@ -1,4 +1,4 @@
-import axios from '../lib/axios';
+import api from '../api/visualCrossing';
 
 export interface HourData {
   datetime: string;
@@ -19,7 +19,7 @@ export interface Weather24hRes {
 export const getNext24hWeather = async (
   city: string
 ): Promise<Weather24hRes> => {
-  const res = await axios.get(
+  const res = await api.get(
     `/timeline/${encodeURIComponent(city)}/next2days`,
     {
       params: {
