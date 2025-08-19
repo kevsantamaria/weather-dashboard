@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import PageHeader from './components/pages/PageHeader';
-import PageMain from './components/pages/PageMain';
-import PageFooter from './components/pages/PageFooter';
+import PageHeader from './components/structure/PageHeader';
+import PageMain from './components/structure/PageMain';
+import PageFooter from './components/structure/PageFooter';
 import './index.css';
 
 function App() {

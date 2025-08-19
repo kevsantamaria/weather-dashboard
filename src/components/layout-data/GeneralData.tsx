@@ -9,6 +9,7 @@ import {
   Thermometer,
   Snowflake,
   Sun,
+  Loader,
 } from 'lucide-react';
 
 interface Props {
@@ -30,12 +31,16 @@ function GeneralData({ city }: Props) {
 
   if (loadingWeekly || loadingHourly) {
     console.log('Loading GeneralData weather...');
-    return null;
+    return (
+      <Card className="w-90 h-20 md:absolute top-[20%] left-[35%] flex items-center justify-center font-bold">
+      <span className="flex gap-1">Loading<Loader className="animate-spin" /></span> 
+    </Card>
+    );
   } else if (errorWeekly || !weeklyData || errorHourly || !hourlyData) {
     console.error('Error loading GeneralData weather');
     return (
-      <Card className="flex items-center justify-center text-red-500">
-        Loading error, please retry again
+      <Card className="w-90 h-20 md:absolute top-[20%] left-[35%] flex items-center justify-center text-red-500 font-bold">
+        Loading error, please try again
       </Card>
     );
   }

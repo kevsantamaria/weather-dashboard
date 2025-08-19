@@ -27,9 +27,9 @@ function TodayData({ city }: Props) {
             {data.hours.map((hour, index) => (
               <Card
                 key={index}
-                className="flex flex-col items-center justify-around gap-0 min-w-20 max-h-37 text-sm"
+                className="bg-[var(--bg-card-light)] border-none flex flex-col items-center justify-around gap-0 min-w-20 max-h-37 text-sm"
               >
-                <h3 className="font-bold">{hour.datetime.slice(0, 5)}</h3>
+                <h3 className="font-bold text-gray-500">{hour.datetime.slice(0, 5)}</h3>
                 <WeatherIcon icon={hour.icon} size={40} />
                 <span className="text-gray-500 flex gap-1 mt-2">
                   <SunSnow size={20} />
