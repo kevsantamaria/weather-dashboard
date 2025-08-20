@@ -1,69 +1,74 @@
-# React + TypeScript + Vite
+# Weather React TS App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a weather application built with **React**, **Vite**, and **TypeScript**, designed to provide accurate and visually appealing weather information. The app is powered by the <a href="https://www.visualcrossing.com/weather-api/" >Visual Crossing Weather API</a> and includes modern UI/UX features.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **General Weather Information.**
+- **Next 24 Hours Forecast.**
+- **7-Day Precipitation Bar Chart.**
+- **7-Day Max/Min Temperatures Line Chart.**
+- **Responsive Design.**
+- **Dark/Light Mode Support.**
+- **Celsius-Only Display.**
 
-## Expanding the ESLint configuration
+## Tech Stack
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **React** and **Vite**: Fast and modern development environment.
+- **TypeScript**: Strongly typed programming language for better code quality.
+- **Bun**: Lightning-fast JavaScript runtime and package manager.
+- **TailwindCSS**: Utility-first CSS framework for responsive and customizable styling.
+- **shadcn/ui**: Pre-designed UI components for a cohesive design system.
+- **Recharts**: Library for creating interactive and customizable charts.
+- **TanStack Query**: Powerful tool for data fetching and caching.
+- **Axios**: Promise-based HTTP client for seamless API communication.
+- **Zustand**: Simple and scalable state management solution.
+- **Day.js**: Lightweight library for date and time manipulation.
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Installation
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+1. Clone the repository:
+  ```bash
+  git clone https://github.com/your-username/weather-react-ts-app.git
+  cd weather-react-ts-app
+  ```
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+2. Install dependencies using Bun:
+  ```bash
+  bun install
+  ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+3. Create a `.env` file in the root directory and add your **Visual Crossing Weather API** key:
+  ```env
+  VITE_WEATHER_API_KEY=your_api_key_here
+  ```
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+4. Start the development server:
+  ```bash
+  bun dev
+  ```
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## Usage
+
+- Open the app in your browser at `http://localhost:3000`.
+- Search for a location to view its weather information.
+- Toggle between dark and light modes using the theme switcher.
+
+## Screenshots
+
+_Add screenshots or GIFs of the app here._
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
+
+## Acknowledgments
+
+- [Visual Crossing Weather API](https://www.visualcrossing.com/)
+- [React](https://reactjs.org/)
+- [Vite](https://vitejs.dev/)
+- [TailwindCSS](https://tailwindcss.com/)
+- [Recharts](https://recharts.org/)
+- [TanStack Query](https://tanstack.com/query)
+
+Feel free to contribute or report issues in the repository!
