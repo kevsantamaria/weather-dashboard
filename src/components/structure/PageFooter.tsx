@@ -7,7 +7,7 @@ function PageFooter() {
           className="font-bold text-blue-400 hover:underline"
           target="_blank"
           rel="noopener noreferrer"
-          href="#"
+          href="https://github.com/kevsantamaria"
         >
           Kevin Santamaria
         </a>
@@ -18,7 +18,7 @@ function PageFooter() {
           className="font-bold text-blue-400 hover:underline"
           target="_blank"
           rel="noopener noreferrer"
-          href="#"
+          href="https://www.visualcrossing.com/weather-api/"
         >
           Visual Crossing Weather API
         </a>
