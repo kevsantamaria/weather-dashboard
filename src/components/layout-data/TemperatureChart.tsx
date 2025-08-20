@@ -8,6 +8,7 @@ import {
   Legend,
   ResponsiveContainer,
 } from 'recharts';
+import dayjs from 'dayjs';
 
 interface Props {
   city: { datetime: string; tempmax: number; tempmin: number }[];
@@ -52,10 +53,10 @@ function TemperatureChart({ city }: Props) {
     <ResponsiveContainer width="100%" height={300}>
       <LineChart data={city}>
         <CartesianGrid strokeDasharray="3 3" />
-        <XAxis dataKey="datetime" />
+        <XAxis dataKey="datetime" tickFormatter={(val) => dayjs(val).format('DD-MM')} />
         <YAxis
           domain={['dataMin - 5', 'dataMax + 5']}
-          tickFormatter={(val) => `${val}°C`}
+          tickFormatter={(val) => `${Math.round(val)}°C`}
         />
         <Tooltip content={<CustomLineTooltip />} />
         <Legend />

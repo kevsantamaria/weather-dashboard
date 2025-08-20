@@ -8,6 +8,7 @@ import {
   ResponsiveContainer,
   Cell,
 } from 'recharts';
+import dayjs from 'dayjs';
 
 interface Props {
   city: { datetime: string; precipprob: number }[];
@@ -46,7 +47,7 @@ function PrecipitationChart({ city }: Props) {
     <ResponsiveContainer width="100%" height={300}>
       <BarChart data={city}>
         <CartesianGrid strokeDasharray="3 3" />
-        <XAxis dataKey="datetime" />
+        <XAxis dataKey="datetime" tickFormatter={(val) => dayjs(val).format('DD-MM')} />
         <YAxis domain={[0, 100]} tickFormatter={(val) => `${val}%`} />
         <Tooltip content={<CustomTooltip />} />
         <Bar dataKey="precipprob" radius={[10, 10, 0, 0]}>
