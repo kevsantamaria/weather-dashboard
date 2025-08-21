@@ -56,19 +56,8 @@ This is a weather application built with **React**, **Vite**, and **TypeScript**
 
 ## Screenshots
 
-_Add screenshots or GIFs of the app here._
+![Screenshot](public/screenshot_3x_postspark_2025-08-19_23-47-20.png)
 
-## License
+## Live Demo
 
-This project is licensed under the [MIT License](LICENSE).
-
-## Acknowledgments
-
-- [Visual Crossing Weather API](https://www.visualcrossing.com/)
-- [React](https://reactjs.org/)
-- [Vite](https://vitejs.dev/)
-- [TailwindCSS](https://tailwindcss.com/)
-- [Recharts](https://recharts.org/)
-- [TanStack Query](https://tanstack.com/query)
-
-Feel free to contribute or report issues in the repository!
+- <a href="https://kevsantamaria.github.io/weather-dashboard/">kevsantamaria.github.io/weather-dashboard/</a>
