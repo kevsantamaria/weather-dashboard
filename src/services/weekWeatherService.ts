@@ -1,4 +1,4 @@
-import api from '../api/visualCrossing';
+import api from '@/api/visualCrossing';
 
 export interface WeatherRes {
   resolvedAddress: string;

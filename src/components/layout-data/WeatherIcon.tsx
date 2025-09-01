@@ -4,7 +4,7 @@ interface Props {
 }
 
 function WeatherIcon({ icon, size = 40 }: Props) {
-  const path = new URL(`../../assets/img/${icon}.png`, import.meta.url).href;
+  const path = new URL(`../../assets/img/${icon}.webp`, import.meta.url).href;
 
   return (
     <div style={{ width: size, height: size }}>

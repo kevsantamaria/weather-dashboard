@@ -20,14 +20,14 @@ function TodayDataSection({ city }: Props) {
     return null;
   }
   return (
-    <Card className="m-0 p-0 w-full h-fit glass-effect">
+    <Card className="m-0 p-0 w-full h-fit glass-effect dark:dark-glass-effect">
       <ScrollArea className="w-full max-w-full overflow-hidden whitespace-nowrap">
         <div className="py-4">
           <div className="flex gap-2 px-4">
             {data.hours.map((hour, index) => (
               <Card
                 key={index}
-                className="bg-[var(--bg-card-light)] border-none flex flex-col items-center justify-around gap-0 min-w-20 max-h-37 text-sm"
+                className="bg-[var(--bg-card-light)] dark:bg-[var(--bg-card-dark)] flex flex-col items-center justify-around gap-0 border-gray-100 dark:border-gray-900 min-w-20 max-h-37 text-sm"
               >
                 <h3 className="font-bold text-gray-500">{hour.time.slice(0, 5)}</h3>
                 <WeatherIcon icon={hour.icon} size={40} />

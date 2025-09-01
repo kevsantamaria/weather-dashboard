@@ -8,7 +8,7 @@ function App() {
   const [city, setCity] = useState('');
 
   return (
-    <section className="flex flex-col min-h-screen gap-4">
+    <section className="flex flex-col min-h-screen gap-4 bg-[var(--gradient-light)] dark:bg-[var(--gradient-dark)]">
       <PageHeader city={city} onSubmit={setCity} />
       <PageMain city={city} />
       <PageFooter />

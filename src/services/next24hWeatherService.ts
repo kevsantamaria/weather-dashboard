@@ -1,5 +1,5 @@
-import api from '../api/visualCrossing';
-import dayjs from '../lib/dayjs';
+import api from '@/api/visualCrossing';
+import dayjs from '@/lib/dayjs';
 import { Dayjs } from 'dayjs'
 
 export type HourData = {

@@ -1,13 +1,13 @@
 @import "tailwindcss";
 @import "tw-animate-css";
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 
 :root {
   --color-primary: #1b99d3;
   --color-primary-high: #0f5f8c;
   --color-primary-low: #7fc6e8;
   --color-primary-hover: #0d8bc7;
-
-  /* Light */
+  
   --text-light: #2d3748;
   --glass-light: rgba(255, 255, 255, 0.5);
   --gradient-light: radial-gradient(
@@ -19,7 +19,7 @@
     radial-gradient(farthest-corner at 100% 0%, #d3d1ffff 0%, #0000ff00 60%),
     radial-gradient(farthest-corner at 0% 72%, #c7ffe2ff 0%, #ffffffff 100%);
 
-    /* Dark */
+    
     --text-dark: #f7fafc;
     --glass-dark: rgba(0, 0, 0, 0.5);
     --gradient-dark: radial-gradient(
@@ -42,37 +42,17 @@ body {
   transition: color 0.4s ease;
 }
 
-body::before {
-  content: "";
-  position: fixed; /* Ocupa toda la pantalla */
-  inset: 0;        /* top:0; right:0; bottom:0; left:0 */
-  background: var(--gradient-dark);
-  opacity: 0; /* Oculto por defecto */
-  transition: opacity 0.4s ease;
-  z-index: -1; /* Detrás del contenido */
-}
-
-[data-theme="dark"] body {
-  color: var(--text-dark);
-}
-
-[data-theme="dark"] body::before {
-  opacity: 1; /* Hace aparecer el gradiente oscuro */
-}
-
 .glass-effect {
   background-color: var(--glass-light);
   backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.5);
 }
 
-[data-theme="dark"] .glass-effect {
+.dark-glass-effect {
   background-color: var(--glass-dark);
   color: var(--text-dark);
   border: 1px solid rgba(0, 0, 0, 0.5);
 }
-
-@custom-variant dark (&:is(.dark *));
 
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
