@@ -26,14 +26,14 @@ function CityInput({ onSubmit }: Props) {
         <Input
           type="text"
           placeholder="Enter city name"
-          className="bg-white text-[var(--text-light)] w-full selection:bg-blue-300"
+          required
           value={city}
           onChange={(e) => setCity(e.target.value)}
           autoFocus
         />
         <Button
           type="submit"
-          className="bg-[var(--color-primary)] hover:bg-[var(--color-primary-hover)] font-bold cursor-pointer"
+          className="font-bold cursor-pointer"
         >
           <span className="hidden md:flex items-center gap-1">
             Search <Search strokeWidth={4} />

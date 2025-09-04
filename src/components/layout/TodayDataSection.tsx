@@ -20,24 +20,24 @@ function TodayDataSection({ city }: Props) {
     return null;
   }
   return (
-    <Card className="m-0 p-0 w-full h-fit glass-effect dark:dark-glass-effect">
+    <Card className="m-0 p-0 w-full h-fit glass-effect">
       <ScrollArea className="w-full max-w-full overflow-hidden whitespace-nowrap">
         <div className="py-4">
           <div className="flex gap-2 px-4">
             {data.hours.map((hour, index) => (
               <Card
                 key={index}
-                className="bg-[var(--bg-card-light)] dark:bg-[var(--bg-card-dark)] flex flex-col items-center justify-around gap-0 border-gray-100 dark:border-gray-900 min-w-20 max-h-37 text-sm"
+                className="flex flex-col items-center justify-around gap-0 min-w-20 max-h-37 text-sm"
               >
-                <h3 className="font-bold text-gray-500">{hour.time.slice(0, 5)}</h3>
+                <h3 className="font-bold text-secondary-foreground">{hour.time.slice(0, 5)}</h3>
                 <WeatherIcon icon={hour.icon} size={40} />
-                <span className="text-gray-500 flex gap-1 mt-2">
+                <span className="text-secondary-foreground flex gap-1 mt-2">
                   <SunSnow size={20} />
                   {`${Math.round(hour.temp)}°C`}
                 </span>
 
                 {hour?.precipprob > 0 && (
-                  <span className="text-gray-500 flex gap-1">
+                  <span className="text-secondary-foreground flex gap-1">
                     <CloudRain size={20} />
                     {`${Math.round(hour.precipprob)}%`}
                   </span>
