@@ -35,7 +35,7 @@ function CityInput({ onSubmit }: Props) {
           type="submit"
           className="font-bold cursor-pointer"
         >
-          <span className="hidden md:flex items-center gap-1">
+          <span className="font-extrabold hidden md:flex items-center gap-1">
             Search <Search strokeWidth={4} />
           </span>
           <span className="md:hidden font-bold">

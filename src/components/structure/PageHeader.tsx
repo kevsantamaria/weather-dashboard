@@ -20,7 +20,7 @@ function PageHeader({ onSubmit, city }: Props) {
       </h1>
       <div className="flex items-center gap-4 mb-3 md:mb-0">
         <CityInput onSubmit={onSubmit} />
-        <Toggle onClick={changeTheme} className="bg-accent">
+        <Toggle onClick={changeTheme}>
           {darkMode ? <Sun /> : <Moon/>}
         </Toggle>
       </div>

@@ -34,11 +34,10 @@
 }
 
 body {
-  font-family: "Inter", sans-serif;
+  font-family: 'Poppins', sans-serif;
   position: relative;
   overflow-x: hidden;
   z-index: 0;
-  transition: color 0.4s ease;
 }
 
 .app-background {
