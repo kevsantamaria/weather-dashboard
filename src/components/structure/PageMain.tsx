@@ -1,6 +1,6 @@
-import GeneralDataSection from '../layout/GeneralDataSection';
-import TodayDataSection from '../layout/TodayDataSection';
-import ChartsSection from '../layout/ChartsSection';
+import GeneralDataSection from '@/components/layout/GeneralDataSection';
+import TodayDataSection from '@/components/layout/TodayDataSection';
+import ChartsSection from '@/components/layout/ChartsSection';
 
 interface Props {
   city: string;

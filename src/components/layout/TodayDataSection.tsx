@@ -1,7 +1,7 @@
-import { Card } from '../ui/card';
+import useNext24hWeather from '@/hooks/useNext24hWeather';
+import { Card } from '@/components/ui/card';
 import { ScrollArea, ScrollBar } from '@/components/ui/scroll-area';
-import WeatherIcon from '../custom-ui/WeatherIcon';
-import useNext24hWeather from '../../hooks/useNext24hWeather';
+import WeatherIcon from '@/components/custom-ui/WeatherIcon';
 import { CloudRain, SunSnow } from 'lucide-react';
 
 interface Props {

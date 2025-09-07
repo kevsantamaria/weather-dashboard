@@ -1,7 +1,7 @@
-import { Card } from '../ui/card';
-import WeatherIcon from '../custom-ui/WeatherIcon';
-import useWeeklyWeather from '../../hooks/useWeeklyWeather';
-import useNext24hWeather from '../../hooks/useNext24hWeather';
+import useWeeklyWeather from '@/hooks/useWeeklyWeather';
+import useNext24hWeather from '@/hooks/useNext24hWeather';
+import { Card } from '@/components/ui/card';
+import WeatherIcon from '@/components/custom-ui/WeatherIcon';
 import {
   CloudRain,
   Droplet,

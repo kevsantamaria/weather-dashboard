@@ -1,7 +1,7 @@
-import CityInput from '../layout/CityInput';
-import { Toggle } from '../ui/toggle';
-import useWeeklyWeather from '../../hooks/useWeeklyWeather';
-import { useThemeStore } from '../../store/themeStore'
+import useWeeklyWeather from '@/hooks/useWeeklyWeather';
+import { useThemeStore } from '@/store/themeStore'
+import { Toggle } from '@/components/ui/toggle';
+import CityInput from '@/components/layout/CityInput';
 import { Sun, Moon } from 'lucide-react';
 
 interface Props {

@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
-import { getWeekWeather } from '../services/weekWeatherService';
+import { getWeekWeather } from '@/services/weekWeatherService';
 
 const useWeather = (city: string) => {
   return useQuery({

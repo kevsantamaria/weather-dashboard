@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
-import { getNext24hWeather } from '../services/next24hWeatherService';
+import { getNext24hWeather } from '@/services/next24hWeatherService';
 
 const useNext24hWeather = (city: string) => {
   return useQuery({

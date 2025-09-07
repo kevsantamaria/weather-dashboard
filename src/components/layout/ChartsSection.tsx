@@ -1,6 +1,6 @@
-import PrecipitationChart from '../Charts/PrecipitationChart';
-import TemperatureChart from '../Charts/TemperatureChart';
-import useWeeklyWeather from '../../hooks/useWeeklyWeather';
+import PrecipitationChart from '@/components/Charts/PrecipitationChart';
+import TemperatureChart from '@/components/Charts/TemperatureChart';
+import useWeeklyWeather from '@/hooks/useWeeklyWeather';
 
 interface Props {
   city: string;
