@@ -1,5 +1,5 @@
-import PrecipitationChart from '../layout-data/PrecipitationChart';
-import TemperatureChart from '../layout-data/TemperatureChart';
+import PrecipitationChart from '../Charts/PrecipitationChart';
+import TemperatureChart from '../Charts/TemperatureChart';
 import useWeeklyWeather from '../../hooks/useWeeklyWeather';
 
 interface Props {

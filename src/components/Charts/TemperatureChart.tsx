@@ -9,23 +9,13 @@ import {
   ResponsiveContainer,
 } from 'recharts';
 import dayjs from 'dayjs';
+import type { TooltipProps } from '@/components/Charts/types';
 
 interface Props {
   city: { datetime: string; tempmax: number; tempmin: number }[];
 }
 
-interface LineTooltipProps {
-  active?: boolean;
-  payload?: Array<{
-    dataKey: string;
-    value: number;
-    name?: string;
-    color?: string;
-  }>;
-  label?: string;
-}
-
-const CustomLineTooltip = ({ active, payload, label }: LineTooltipProps) => {
+const CustomTooltip = ({ active, payload, label }: TooltipProps) => {
   if (!active || !payload || payload.length === 0) return null;
 
   const tempMax = payload.find(p => p.dataKey === 'tempmax')?.value;
@@ -33,14 +23,8 @@ const CustomLineTooltip = ({ active, payload, label }: LineTooltipProps) => {
 
   return (
     <div
-      style={{
-        backgroundColor: '#fff', // fondo blanco
-        color: '#222',           // texto gris
-        padding: '10px 20px',
-        borderRadius: 6,
-        fontSize: 12,
-      }}
-    >
+    className='bg-white text-gray-800 px-3.5 py-2.5 rounded-md text-sm' >
+
       <div>{label}</div>
       {tempMax !== undefined && <div style={{color: '#ef4444'}}>Max: {Math.round(tempMax)}°C</div>}
       {tempMin !== undefined && <div style={{color: '#3b82f6'}}>Min: {Math.round(tempMin)}°C</div>}
@@ -53,12 +37,13 @@ function TemperatureChart({ city }: Props) {
     <ResponsiveContainer width="100%" height={300}>
       <LineChart data={city}>
         <CartesianGrid strokeDasharray="3 3" />
-        <XAxis dataKey="datetime" tickFormatter={(val) => dayjs(val).format('DD-MM')} />
+        <XAxis dataKey="datetime" stroke='var(--secondary-foreground)' tickFormatter={(val) => dayjs(val).format('DD-MM')} />
         <YAxis
           domain={['dataMin - 5', 'dataMax + 5']}
+          stroke='var(--secondary-foreground)'
           tickFormatter={(val) => `${Math.round(val)}°C`}
         />
-        <Tooltip content={<CustomLineTooltip />} />
+        <Tooltip content={<CustomTooltip />} />
         <Legend />
         <Line
           type="monotone"

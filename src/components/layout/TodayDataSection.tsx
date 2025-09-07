@@ -1,6 +1,6 @@
 import { Card } from '../ui/card';
 import { ScrollArea, ScrollBar } from '@/components/ui/scroll-area';
-import WeatherIcon from '../layout-data/WeatherIcon';
+import WeatherIcon from '../custom-ui/WeatherIcon';
 import useNext24hWeather from '../../hooks/useNext24hWeather';
 import { CloudRain, SunSnow } from 'lucide-react';
 

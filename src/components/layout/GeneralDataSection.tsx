@@ -1,5 +1,5 @@
 import { Card } from '../ui/card';
-import WeatherIcon from '../layout-data/WeatherIcon';
+import WeatherIcon from '../custom-ui/WeatherIcon';
 import useWeeklyWeather from '../../hooks/useWeeklyWeather';
 import useNext24hWeather from '../../hooks/useNext24hWeather';
 import {
