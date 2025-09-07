@@ -56,7 +56,7 @@ This is a weather application built with **React**, **Vite**, and **TypeScript**
 
 ## Screenshots
 
-![Screenshot](public/screenshot_3x_postspark_2025-08-19_23-47-20.png)
+![Screenshot](public/screenshot.webp)
 
 ## Live Demo
 
