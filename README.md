@@ -3,7 +3,6 @@
 A modern weather application built with **React**, **Vite**, and **TypeScript**, designed to provide accurate and visually appealing weather information.  
 The app is powered by the <a href="https://www.visualcrossing.com/weather-api/" target="_blank" >Visual Crossing Weather API</a> and includes modern UI/UX features.
 
----
 ## ✨ Features
 
 - **General Weather Information**
@@ -14,7 +13,6 @@ The app is powered by the <a href="https://www.visualcrossing.com/weather-api/" 
 - **Dark/Light Mode Support**
 - **Celsius-Only Display**
 
----
 ## 🛠 Tech Stack
 
 - **Framework & Runtime:** React, Vite, Bun  
@@ -24,7 +22,6 @@ The app is powered by the <a href="https://www.visualcrossing.com/weather-api/" 
 - **Charts:** Recharts  
 - **Date & Time:** Day.js 
 
----
 ## ⚡ Installation
 
 1. Clone the repository:
@@ -48,19 +45,16 @@ The app is powered by the <a href="https://www.visualcrossing.com/weather-api/" 
   bun dev
   ```
 
----
 ## 🚀 Usage
 
 - Open the app in your browser at `http://localhost:5173`.
 - Search for a location to view its weather information.
 - Toggle between dark and light modes using the theme switcher.
 
----
 ## 🖼 Screenshots
 
 ![Screenshot](public/screenshot.webp)
 
----
 ## 🌍 Live Demo
 
 - <a href="https://kevsantamaria.github.io/weather-dashboard/" target="_blank" >kevsantamaria.github.io/weather-dashboard/</a>
