@@ -56,7 +56,8 @@ body {
 
 .dark .glass-effect {
   background-color: var(--custom-glass-dark);
-  color: var(--custom-text-dark);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px); /* Safari */
   border: 1px solid rgba(0, 0, 0, 0.5);
 }
 

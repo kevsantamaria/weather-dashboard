@@ -24,7 +24,6 @@ const CustomTooltip = ({ active, payload, label }: TooltipProps) => {
   return (
     <div
     className='bg-white text-gray-800 px-3.5 py-2.5 rounded-md text-sm' >
-
       <div>{label}</div>
       {tempMax !== undefined && <div style={{color: '#ef4444'}}>Max: {Math.round(tempMax)}°C</div>}
       {tempMin !== undefined && <div style={{color: '#3b82f6'}}>Min: {Math.round(tempMin)}°C</div>}

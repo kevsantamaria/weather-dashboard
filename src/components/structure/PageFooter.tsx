@@ -4,7 +4,7 @@ function PageFooter() {
       <span>
         Made by{' '}
         <a
-          className="font-bold text-blue-400 underline"
+          className="font-bold text-blue-400 underline visited:text-cyan-300"
           target="_blank"
           rel="noopener noreferrer"
           href="https://github.com/kevsantamaria"
@@ -15,7 +15,7 @@ function PageFooter() {
       <span>
         Data from{' '}
         <a
-          className="font-bold text-blue-400 underline"
+          className="font-bold text-blue-400 underline visited:text-cyan-300"
           target="_blank"
           rel="noopener noreferrer"
           href="https://www.visualcrossing.com/weather-api/"

@@ -38,7 +38,7 @@ function PrecipitationChart({ city }: Props) {
   };
 
   return (
-    <ResponsiveContainer width="100%" height={250}>
+    <ResponsiveContainer width="100%" height={300}>
       <BarChart data={city}>
         <CartesianGrid strokeDasharray="3 3" />
         <XAxis dataKey="datetime" stroke='var(--secondary-foreground)' tickFormatter={(val) => dayjs(val).format('DD-MM')} />
