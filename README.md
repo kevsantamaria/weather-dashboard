@@ -26,8 +26,8 @@ The app is powered by the <a href="https://www.visualcrossing.com/weather-api/" 
 
 1. Clone the repository:
   ```bash
-  git clone https://github.com/your-username/weather-react-ts-app.git
-  cd weather-react-ts-app
+  git clone https://github.com/kevsantamaria/weather-dashboard.git
+  cd weather-dashboard
   ```
 
 2. Install dependencies using **Bun**:
